@@ -3,9 +3,15 @@
 
 class Bullet : public Parent
 {
+public:
 	void Initialize()
 	{
 		m_Number = 10;
+	}
+	
+	virtual void Update()
+	{
+		m_Number += 10;
 	}
 
 	void Output()

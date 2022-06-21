@@ -4,7 +4,8 @@
 class Child : public Parent
 {
 public:
-	void Initialize();
-	void Output();
+	virtual void Initialize();
+	virtual void Update();
+	virtual void Output();
 };
 
