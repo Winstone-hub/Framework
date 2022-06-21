@@ -1,79 +1,83 @@
-#include <iostream>
-
-using namespace std;
+#include "Parent.h"
+#include "Child.h"
+#include "Bullet.h"
 
 
 // ** 1. 정보은닉
+//		private:	= 자기 자신만 사용 가능.
+//		protected:	= 상속간의 공개된 상태. 비상속 클레스 사용불가. 외부 사용 불가.
+//		public:		= 공개된 상태
+
+
 // ** 2. 캡슐화
+//		데이터(변수)와 기능(함수)을 묶음으로 사용하는 것.
+
+
 // ** 3. 추상화
+
+
 // ** 4. 상속
+
+
 // ** 5. 다형성
 
 
-struct AAA
+
+// ** 6. namespace
+//		별도의 영역을 지정하여 동일한 이름의 함수를 사용할 수 있도록 함.
+
+
+
+// ** 7. 생성자 & 소멸자 & 복사 생성자
+
+
+
+/*
+namespace AAA
 {
-	int Number;
-};
+	void Output()
+	{
+		cout << "홍길동" << std::endl;
+	}
+}
 
-class BBB
+using AAA::Output;
+
+namespace BBB
 {
-private:
-	int m_iNumber;
+	void Output()
+	{
+		cout << "임꺽정" << std::endl;
+	}
+}
+*/
 
-public:
-	void Initialize() { m_iNumber = 0; }
-
-	// ** 데이터를 참조받는 것은 가능하지만 수정은 불가.
-	int GetNumber() { return m_iNumber; }
-
-	// ** 데이터를 수정하는 것은 가능하지만 참조는 불가.
-	void SetNumber(int _Number) { m_iNumber = _Number; }
-};
-
-
-
-class CCC
-{
-private:
-	int m_iNumber;
-
-public:
-	void Initialize() { m_iNumber = 100; }
-
-	// ** 데이터를 참조받는 것은 가능하지만 수정은 불가.
-	int GetNumber() { return m_iNumber; }
-
-	// ** 데이터를 수정하는 것은 가능하지만 참조는 불가.
-	void SetNumber(int _Number) { m_iNumber = _Number; }
-};
-
-void Initialize(int& _Number);
 
 
 int main(void)
 {
-	AAA a;
-	Initialize(a.Number);
-	cout << a.Number << endl;
+	/*
+	Parent* p = new Child;
+
+	p->Initialize();
+	p->Output();
+	*/
 
 
-	BBB b;
-	//b.Number 바로 사용할 수 없음.
-	b.Initialize();
-	cout << b.GetNumber() << endl;
+	Parent* p[2];
 
+	const int ID_Child = 0;
+	const int ID_Bullet = 1;
 
-	CCC c;
-	//b.Number 바로 사용할 수 없음.
-	c.Initialize();
-	cout << c.GetNumber() << endl;
+	p[ID_Child] = new Child;
+	p[ID_Bullet] = new Bullet;
 
-
+	for (int i = 0; i < 2; ++i)
+	{
+		p[i]->Initialize();
+		p[i]->Output();
+	}
 
 	return 0;
 }
 
-void Initialize(int& _Number)
-{
-	_Number = 0;
-}
