@@ -1,270 +1,71 @@
+// ** Framework v1.1
 #define _CRT_SECURE_NO_WARNINGS
-#include "Parent.h"
-#include "Child.h"
-#include "Bullet.h"
+#include "Headers.h"
+#include "MainUpdate.h"
 
-// ** 7. 생성자 & 소멸자 & 복사 생성자.
-// ** 8. 깊은복사 얕은복사.
-// ** (복사 생성자)
+// ** GetTickCount 대략 49일
+// ** GetTickCount64 대략 5억년
+
+
 /*
-struct tagInfo
-{
-	int Number;
-};
-
-class Object
-{
-protected:
-	tagInfo m_Info;
-public:
-	int Number;
-	char* Name;
-public:
-	virtual Object* Clone() = 0;
-
-
-
-
-public:
-	// ** 사용자가 호출하지 않아도 스스로 호출됨.
-	// ** 클래스가 생성된 직후 호출.
-	Object()
-	{
-		cout << "생성자" << endl;
-	};
-
-	// ** 사용자가 호출하는 시점에 호출 됨.
-	// ** 전달값의 개수와 자료형에 따라서 선택적(자동)으로 호출 됨.
-	Object(int _Number) : Number(_Number)
-	{
-		cout << "복사 생성자 : int" << endl;
-
-		//Number = _Number;
-	};
-
-	Object(float _Number)
-	{
-		cout << "복사 생성자 : float" << endl;
-
-		Number = (int)_Number;
-	};
-
-	Object(char* _Name)
-	{
-		Name = new char[strlen(_Name) + 1];
-		strcpy(Name, _Name);
-	};
-
-	Object(Object* _Obj)
-	{
-		Name = new char[strlen(_Obj->Name) + 1];
-		strcpy(Name, _Obj->Name);
-	};
-
-	Object(tagInfo _Info) : m_Info(_Info) { }
-
-
-
-	// ** 클래스가 삭제되기 직전
-	~Object()
-	{
-		cout << "소멸자" << endl;
-
-		//delete[] Name;
-		//Name = nullptr;
-	};
-};
-
-class Player : public Object
-{
-public:
-	virtual Object* Clone() override { return new Player(*this); }
-
-	void Output() { cout << m_Info.Number << endl; }
-
-public:
-	Player() { };
-	//Player(tagInfo _Info) : Object(_Info) { };
-	Player(tagInfo _Info) : Object(_Info) { };
-	~Player() { };
-};
-*/
-
-
-
-// ** 9. 오버로딩 & 오버라이딩.
-/*
-class Object
-{
-public:
-	virtual void Output()
-	{
-		cout << "Object : " << endl;
-	}
-
-	virtual void Output(string _str)
-	{
-		cout << "Object : " << _str << endl;
-	}
-};
-
-class AAA : public Object
-{
-public:
-	void Output() override
-	{
-		cout << "AAA : " << endl;
-	}
-
-	void Output(string _str) override
-	{
-		cout << "AAA : " << _str << endl;
-	}
-};
-*/
-
-
-
-
-// ** 10. 연산자 오버로딩.
-
-struct tagInfo
-{
-	int Number;
-
-	tagInfo() {};
-	tagInfo(int _Number) : Number(_Number) {};
-};
-
-class Object
+// ** Singleton 
+class Singleton
 {
 private:
-	tagInfo Info;
+	static Singleton* Instance;
 public:
-	Object& operator+=(const Object& _Obj)
+	static Singleton* GetInstance()
 	{
-		Info.Number += _Obj.Info.Number;
-		return *this;
+		if (Instance == nullptr)
+			Instance = new Singleton;
+
+		return Instance;
 	}
 
-	Object& operator++()
-	{
-		Info.Number += 1;
-		return *this;
-	}
-
-	void Output()
-	{
-		cout << Info.Number << endl;
-	}
+private:
+	int Number;
 public:
-	Object() { }
-	Object(tagInfo _Info) : Info(_Info) { }
-	~Object() { }
+	int GetNumber() const { return Number; }
+	void SetNumber(const int& _Nuumber) { Number = _Nuumber; }
+private:
+	Singleton() : Number(0) {}
+public:
+	~Singleton() {}
 };
 
+Singleton* Singleton::Instance = nullptr;
+*/
 
-
-
-
-
-// ** 11. 포인터 (복습) & 캡슐화.
-
-
-
-
-
-
-
-
-
-
-
-//map<string, Object*> PortotypeObject;
-
-//Object* GetObject(string _Key);
 
 int main(void)
 {
 	/*
-	Object o = Object(3.141592f);
-	cout << "Hello World!!" << endl;
-
-	Object o1((char*)"홍길동");
-	//Object o2 = o1;
-	Object o2(o1);
+	Singleton::GetInstance()->SetNumber(10);
+	cout << Singleton::GetInstance()->GetNumber() << endl;
 	*/
 
 
 	/*
-	int i = 10;
-	int n(10);
-	*/
-	
+	MainUpdate Main;
+	Main.Initialize();
 
+	ULONGLONG Time = GetTickCount64(); // 1 / 1000
 
-	/*
-	tagInfo Info;
-	AAA a[8];
-
-	for (int i = 0; i < 8; ++i)
+	while (true)
 	{
-		Info.Number = i + 1;
-		a[i] = AAA(Info);
+		if (Time + 50 < GetTickCount64())
+		{
+			Time = GetTickCount64();
+
+			system("cls");
+
+			Main.Update();
+			Main.Render();
+		}
 	}
-
-	for (int i = 0; i < 8; ++i)
-		a[i].Output();
-	*/
-
-
-
-	/*
-	 * 예제
-	tagInfo Info;
-
-	Info.Number = 10;
-	PortotypeObject["Player"] = new Player(Info);
-
-	Object* pProtoObj = GetObject("Player");
-
-	Object* pPlayer = nullptr;
-
-	if (pProtoObj != nullptr)
-		pPlayer = pProtoObj->Clone();
-	*/
-
-
-
-
-
-	/*
-	Object o1(tagInfo(10));
-
-	Object o2(o1);
-
-	o2 += o1;
-	
-	++o2;
-
-	o2.Output();
 	*/
 
 	return 0;
 }
 
-
-
-
-/*
-Object* GetObject(string _Key)
-{
-	map<string, Object*>::iterator iter = PortotypeObject.find(_Key);
-
-	if (iter == PortotypeObject.end())
-		return nullptr;
-	else
-		return iter->second;
-}
-*/
 
