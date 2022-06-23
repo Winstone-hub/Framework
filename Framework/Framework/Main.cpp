@@ -6,7 +6,7 @@
 // ** GetTickCount 대략 49일
 // ** GetTickCount64 대략 5억년
 
-
+ 
 /*
 // ** Singleton 
 class Singleton
@@ -45,7 +45,7 @@ int main(void)
 	*/
 
 
-	/*
+	
 	MainUpdate Main;
 	Main.Initialize();
 
@@ -63,7 +63,7 @@ int main(void)
 			Main.Render();
 		}
 	}
-	*/
+	
 
 	return 0;
 }
