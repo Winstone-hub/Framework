@@ -8,6 +8,7 @@ Menu::~Menu() { }
 
 void Menu::Initialize()
 {
+
 }
 
 void Menu::Update()
@@ -27,4 +28,5 @@ void Menu::Render()
 
 void Menu::Release()
 {
+
 }

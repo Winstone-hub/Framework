@@ -3,6 +3,9 @@
 
 class Player : public Object
 {
+private:
+	int Horizontal;
+	int Vertical;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;
