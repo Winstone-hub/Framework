@@ -4,15 +4,13 @@ SceneManager* SceneManager::Instance = nullptr;
 
 SceneManager::SceneManager()
 {
+
 }
 
 SceneManager::~SceneManager()
 {
+
 }
-
-
-
-
 
 void SceneManager::SetScene(int _SceneState)
 {
@@ -35,5 +33,5 @@ void SceneManager::SetScene(int _SceneState)
 		break;
 	}
 
-	system("pause");
+	Sleep(500);
 }

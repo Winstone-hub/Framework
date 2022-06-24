@@ -25,6 +25,9 @@
     <Filter Include="소스 파일\99. Manager\SceneManager">
       <UniqueIdentifier>{36ed252b-024a-40db-a2dc-71e66351710a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Manager\InputManager">
+      <UniqueIdentifier>{472f3bd3-effc-49d7-bf4f-edd24c6d9a58}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -35,6 +38,9 @@
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>소스 파일\99. Manager\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>소스 파일\99. Manager\InputManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="Enum.h">
       <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>소스 파일\99. Manager\InputManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
