@@ -6,29 +6,40 @@ InputManager::InputManager() : Key(0) { }
 InputManager::~InputManager() { }
 
 
+/*
+VK_LSHIFT
+VK_RSHIFT
+VK_LCONTROL
+VK_RCONTROL
+VK_LMENU
+VK_RMENU
+*/
+
 void InputManager::InputKey()
 {
-	if (GetAsyncKeyState(VK_UP))
-		cout << "KYE_UP" << endl;
+	Key = 0;
 
-	if (GetAsyncKeyState(VK_DOWN))
-		cout << "KYE_DOWN" << endl;
+	if (GetAsyncKeyState(VK_UP) || GetAsyncKeyState('W'))
+		Key |= KYE_UP;
 
-	if (GetAsyncKeyState(VK_LEFT))
-		cout << "KYE_LEFT" << endl;
+	if (GetAsyncKeyState(VK_DOWN) || GetAsyncKeyState('S'))
+		Key |= KYE_DOWN;
 
-	if (GetAsyncKeyState(VK_RIGHT))
-		cout << "KYE_RIGHT" << endl;
+	if (GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState('A'))
+		Key |= KYE_LEFT;
+
+	if (GetAsyncKeyState(VK_RIGHT) || GetAsyncKeyState('D'))
+		Key |= KYE_RIGHT;
 
 	if (GetAsyncKeyState(VK_SPACE))
-		cout << "KYE_SPACE" << endl;
+		Key |= KYE_SPACE;
 
 	if (GetAsyncKeyState(VK_RETURN))
-		cout << "KYE_ENTER" << endl;
+		Key |= KYE_ENTER;
 
 	if (GetAsyncKeyState(VK_CONTROL))
-		cout << "KYE_CTRL" << endl;
+		Key |= KYE_CTRL;
 
 	if (GetAsyncKeyState(VK_MENU))
-		cout << "KYE_ALT" << endl;
+		Key |= KYE_ALT;
 }
