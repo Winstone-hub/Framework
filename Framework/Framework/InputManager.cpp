@@ -6,15 +6,6 @@ InputManager::InputManager() : Key(0) { }
 InputManager::~InputManager() { }
 
 
-/*
-VK_LSHIFT
-VK_RSHIFT
-VK_LCONTROL
-VK_RCONTROL
-VK_LMENU
-VK_RMENU
-*/
-
 void InputManager::InputKey()
 {
 	Key = 0;

@@ -1,11 +1,5 @@
 #pragma once
 
-const int LOGO = 0;
-const int MENU = 1;
-const int STAGE = 2;
-const int EXIT = 3;
-
-
 const DWORD KYE_UP = 1;
 const DWORD KYE_DOWN = 2;
 const DWORD KYE_LEFT = 4;

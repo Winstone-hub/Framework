@@ -16,9 +16,6 @@
     <Filter Include="헤더 파일\Include">
       <UniqueIdentifier>{f558db5e-bc78-49cc-92b7-5844d96f34a3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\MainUpdate">
-      <UniqueIdentifier>{b80729c6-6c8f-4793-a9e8-664a9553600f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\99. Manager">
       <UniqueIdentifier>{245daab0-c26d-44df-9ff2-59d41d36d812}</UniqueIdentifier>
     </Filter>
@@ -28,19 +25,46 @@
     <Filter Include="소스 파일\99. Manager\InputManager">
       <UniqueIdentifier>{472f3bd3-effc-49d7-bf4f-edd24c6d9a58}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\00. MainUpdate">
+      <UniqueIdentifier>{b80729c6-6c8f-4793-a9e8-664a9553600f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Scene">
+      <UniqueIdentifier>{4280bab1-00a1-460f-a35a-9fd68845bfef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Scene\Logo">
+      <UniqueIdentifier>{8c39e4fc-671f-40d5-857f-c9598a3ee07b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Scene\Menu">
+      <UniqueIdentifier>{56402d76-2949-4307-991a-de5607ce877d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Scene\Stage">
+      <UniqueIdentifier>{4807c398-16be-4ce2-a32a-9a9887403f3b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="MainUpdate.cpp">
-      <Filter>소스 파일\MainUpdate</Filter>
+      <Filter>소스 파일\00. MainUpdate</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>소스 파일\99. Manager\SceneManager</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>소스 파일\99. Manager\InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 파일\01. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Logo.cpp">
+      <Filter>소스 파일\01. Scene\Logo</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>소스 파일\01. Scene\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>소스 파일\01. Scene\Stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -51,7 +75,7 @@
       <Filter>헤더 파일\Include</Filter>
     </ClInclude>
     <ClInclude Include="MainUpdate.h">
-      <Filter>소스 파일\MainUpdate</Filter>
+      <Filter>소스 파일\00. MainUpdate</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>소스 파일\99. Manager\SceneManager</Filter>
@@ -61,6 +85,18 @@
     </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>소스 파일\99. Manager\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>소스 파일\01. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Logo.h">
+      <Filter>소스 파일\01. Scene\Logo</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>소스 파일\01. Scene\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>소스 파일\01. Scene\Stage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
