@@ -10,6 +10,6 @@ public:
 	virtual void Release()override;
 public:
 	Stage();
-	~Stage();
+	virtual ~Stage();
 };
 

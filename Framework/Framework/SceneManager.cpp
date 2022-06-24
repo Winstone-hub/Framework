@@ -14,26 +14,23 @@ SceneManager::~SceneManager() { Release(); }
 void SceneManager::SetScene(SCENEID _SceneState)
 {
 	if (SceneState != nullptr)
-	{
-		delete SceneState;
-		SceneState = nullptr;
-	}
+		::Safe_Delete(SceneState);
 
 	switch (_SceneState)
 	{
-	case LOGO:
+	case SCENEID::LOGO:
 		SceneState = new Logo;
 		break;
 
-	case MENU:
+	case SCENEID::MENU:
 		SceneState = new Menu;
 		break;
 
-	case STAGE:
+	case SCENEID::STAGE:
 		SceneState = new Stage;
 		break;
 
-	case EXIT:
+	case SCENEID::EXIT:
 		exit(NULL);
 		break;
 	}
@@ -52,6 +49,5 @@ void SceneManager::Render()
 
 void SceneManager::Release()
 {
-	delete SceneState;
-	SceneState = nullptr;
+	::Safe_Delete(SceneState);
 }

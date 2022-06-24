@@ -2,13 +2,8 @@
 #include "SceneManager.h"
 #include "InputManager.h"
 
-Stage::Stage()
-{
-}
-
-Stage::~Stage()
-{
-}
+Stage::Stage() { }
+Stage::~Stage() { } 
 
 
 void Stage::Initialize()
@@ -27,7 +22,7 @@ void Stage::Update()
 
 void Stage::Render()
 {
-	cout << "Stage" << endl;
+	Message("Stage");
 }
 
 void Stage::Release()

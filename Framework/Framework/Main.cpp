@@ -1,8 +1,7 @@
-// ** Framework v2.3
+// ** Framework v2.4
 #define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "MainUpdate.h"
-
 
 
 int main(void)
@@ -24,7 +23,6 @@ int main(void)
 			Main.Render();
 		}
 	}
-	
 
 	return 0;
 }
