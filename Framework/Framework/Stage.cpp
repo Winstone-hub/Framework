@@ -1,6 +1,7 @@
 #include "Stage.h"
 #include "Player.h"
 #include "SceneManager.h"
+#include "ObjectManager.h"
 
 Stage::Stage() : pPlayer(nullptr) { }
 Stage::~Stage() { Release(); }
@@ -8,22 +9,22 @@ Stage::~Stage() { Release(); }
 
 void Stage::Initialize()
 {
-	pPlayer = new Player;
-	pPlayer->Initialize();
+	//pPlayer = ObjectManager::GetInstance()->
 }
 
 void Stage::Update()
 {
-	pPlayer->Update();
+	//pPlayer->Update();
 }
 
 void Stage::Render()
 {
-	pPlayer->Render();
+	//pPlayer->Render();
+	ObjectManager::GetInstance()->Render();
 }
 
 void Stage::Release()
 {
-	delete pPlayer;
-	pPlayer = nullptr;
+	//delete pPlayer;
+	//pPlayer = nullptr;
 }

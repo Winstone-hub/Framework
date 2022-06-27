@@ -49,6 +49,9 @@
     <Filter Include="소스 파일\02. Object\Enemy">
       <UniqueIdentifier>{052b007c-85fd-4202-b411-6c9d1050d775}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Manager\ObjectManager">
+      <UniqueIdentifier>{d45d34b0-f6d7-4034-9a11-4623027f64ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -84,6 +87,9 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>소스 파일\02. Object\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>소스 파일\99. Manager\ObjectManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers.h">
@@ -110,9 +116,6 @@
     <ClInclude Include="Logo.h">
       <Filter>소스 파일\01. Scene\Logo</Filter>
     </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>소스 파일\01. Scene\Menu</Filter>
-    </ClInclude>
     <ClInclude Include="Stage.h">
       <Filter>소스 파일\01. Scene\Stage</Filter>
     </ClInclude>
@@ -127,6 +130,12 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>소스 파일\02. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>소스 파일\99. Manager\ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>소스 파일\01. Scene\Menu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
