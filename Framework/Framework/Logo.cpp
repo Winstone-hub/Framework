@@ -17,11 +17,11 @@ void Logo::Initialize()
 	Object* pPlayer = new Player;
 	pPlayer->Initialize();
 
-	Object* pEnemy = new Enemy;
-	pEnemy->Initialize();
+	//Object* pEnemy = new Enemy;
+	//pEnemy->Initialize();
 
 	ObjectManager::GetInstance()->AddObject(pPlayer);
-	ObjectManager::GetInstance()->AddObject(pEnemy);
+	//ObjectManager::GetInstance()->AddObject(pEnemy);
 }
 
 void Logo::Update()
@@ -29,9 +29,7 @@ void Logo::Update()
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_ENTER)
-	{
 		SceneManager::GetInstance()->SetScene(MENU);
-	}
 }
 
 void Logo::Render()

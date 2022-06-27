@@ -9,22 +9,27 @@ Stage::~Stage() { Release(); }
 
 void Stage::Initialize()
 {
-	//pPlayer = ObjectManager::GetInstance()->
+	list<Object*>* pPlayerList = ObjectManager::GetInstance()->GetObjectList("Player");
+
+	if(pPlayerList != nullptr)
+		pPlayer = pPlayerList->front()->Clone();
 }
 
 void Stage::Update()
 {
-	//pPlayer->Update();
+	if(pPlayer)
+		pPlayer->Update();
 }
 
 void Stage::Render()
 {
-	//pPlayer->Render();
+	if(pPlayer)
+		pPlayer->Render();
+
 	ObjectManager::GetInstance()->Render();
 }
 
 void Stage::Release()
 {
-	//delete pPlayer;
-	//pPlayer = nullptr;
+	::Safe_Delete(pPlayer);
 }

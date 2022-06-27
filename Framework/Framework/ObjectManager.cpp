@@ -28,6 +28,16 @@ void ObjectManager::AddObject(Object* _Object)
 		iter->second.push_back(_Object);
 }
 
+list<Object*>* ObjectManager::GetObjectList(string _strKey)
+{
+	map<string, list<Object*>>::iterator iter = ObjectList.find(_strKey);
+
+	if (iter == ObjectList.end())
+		return nullptr;
+
+	return &iter->second;
+}
+
 void ObjectManager::Render()
 {
 	for (map<string, list<Object*>>::iterator iter = ObjectList.begin();

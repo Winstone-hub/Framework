@@ -3,6 +3,7 @@
 
 Player::Player() 
 	: Horizontal(0), Vertical(0) { }
+Player::Player(Transform _Info) : Object(_Info) { }
 Player::~Player() { }
 
 
@@ -34,8 +35,8 @@ void Player::Update()
 void Player::Render()
 {
 	cout << strKey << endl;
-	//cout << "X : " << Horizontal << endl;
-	//cout << "Y : " << Vertical << endl;
+	cout << "X : " << Horizontal << endl;
+	cout << "Y : " << Vertical << endl << endl;
 }
 
 void Player::Release()

@@ -137,5 +137,8 @@
     <ClInclude Include="Menu.h">
       <Filter>소스 파일\01. Scene\Menu</Filter>
     </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

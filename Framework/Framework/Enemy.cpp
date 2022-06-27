@@ -1,6 +1,7 @@
 #include "Enemy.h"
 
 Enemy::Enemy() { }
+Enemy::Enemy(Transform _Info) : Object(_Info) { }
 Enemy::~Enemy() { }
 
 
