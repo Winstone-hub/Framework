@@ -44,9 +44,20 @@ void ObjectManager::Update()
 		iter != ObjectList.end(); ++iter)
 	{
 		for (list<Object*>::iterator iter2 = iter->second.begin();
-			iter2 != iter->second.end(); ++iter2)
+			iter2 != iter->second.end(); )
 		{
-			(*iter2)->Update();
+			int result = (*iter2)->Update();
+
+			if (result == BUFFER_OVER)
+			{
+				Object* Temp = *iter2;
+				iter2 = iter->second.erase(iter2);
+
+				delete Temp;
+				Temp = nullptr;
+			}
+			else
+				++iter2;
 		}
 	}
 }

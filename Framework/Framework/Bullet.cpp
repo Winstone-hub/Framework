@@ -2,6 +2,7 @@
 #include "CursorManager.h"
 
 Bullet::Bullet() { }
+Bullet::Bullet(Transform _TransInfo) : Object(_TransInfo) { }
 Bullet::~Bullet() { }
 
 
@@ -14,9 +15,11 @@ void Bullet::Initialize()
 	TransInfo.Scale = Vector3(2.0f, 1.0f);
 }
 
-void Bullet::Update()
+int Bullet::Update()
 {
-	TransInfo.Position.x += 2.0f;`
+	TransInfo.Position.x += 2.0f;
+
+	return 0;
 }
 
 void Bullet::Render()
