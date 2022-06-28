@@ -1,7 +1,7 @@
 #pragma once
 #include "Object.h"
 
-class Enemy : public Object
+class Bullet : public Object
 {
 public:
 	virtual void Initialize()override;
@@ -9,7 +9,8 @@ public:
 	virtual void Render()override;
 	virtual void Release()override;
 public:
-	Enemy();
-	virtual ~Enemy();
+	Bullet();
+	virtual ~Bullet();
 };
+
 

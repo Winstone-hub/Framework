@@ -38,12 +38,28 @@ list<Object*>* ObjectManager::GetObjectList(string _strKey)
 	return &iter->second;
 }
 
+void ObjectManager::Update()
+{
+	for (map<string, list<Object*>>::iterator iter = ObjectList.begin();
+		iter != ObjectList.end(); ++iter)
+	{
+		for (list<Object*>::iterator iter2 = iter->second.begin();
+			iter2 != iter->second.end(); ++iter2)
+		{
+			(*iter2)->Update();
+		}
+	}
+}
+
 void ObjectManager::Render()
 {
 	for (map<string, list<Object*>>::iterator iter = ObjectList.begin();
 		iter != ObjectList.end(); ++iter)
+	{
 		for (list<Object*>::iterator iter2 = iter->second.begin();
 			iter2 != iter->second.end(); ++iter2)
-		(*iter2)->Render();
+		{
+			(*iter2)->Render();
+		}
+	}
 }
-

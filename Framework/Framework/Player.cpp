@@ -1,18 +1,20 @@
 #include "Player.h"
 #include "InputManager.h"
+#include "CursorManager.h"
+#include "Bullet.h"
+#include "ObjectManager.h"
 
-Player::Player() 
-	: Horizontal(0), Vertical(0) { }
-Player::Player(Transform _Info) : Object(_Info) { }
+Player::Player() : Horizontal(0), Vertical(0) { }
 Player::~Player() { }
 
 
 void Player::Initialize()
 {
-	strKey = "Player";
+	strKey = "¡Û";
 
-	Horizontal = 0;
-	Vertical = 0;
+	TransInfo.Position = Vector3(20.0f, 15.0f);
+	TransInfo.Rotation = Vector3(0.0f, 0.0f);
+	TransInfo.Scale = Vector3(2.0f, 1.0f);
 }
 
 void Player::Update()
@@ -20,23 +22,33 @@ void Player::Update()
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_UP)
-		Vertical += 1;
+		TransInfo.Position.y -= 1;
 
 	if (dwKey & KEY_DOWN)
-		Vertical -= 1;
+		TransInfo.Position.y += 1;
 
 	if (dwKey & KEY_LEFT)
-		Horizontal -= 1;
+		TransInfo.Position.x -= 1;
 	
 	if (dwKey & KEY_RIGHT)
-		Horizontal += 1;
+		TransInfo.Position.x += 1;
+
+	if (dwKey & KEY_SPACE)
+	{
+		Object* pBullet = new Bullet;
+		pBullet->Initialize();
+		pBullet->SetPosition(TransInfo.Position);
+
+		ObjectManager::GetInstance()->AddObject(pBullet);
+	}
 }
 
 void Player::Render()
 {
-	cout << strKey << endl;
-	cout << "X : " << Horizontal << endl;
-	cout << "Y : " << Vertical << endl << endl;
+	CursorManager::Draw(
+		TransInfo.Position.x,
+		TransInfo.Position.y,
+		strKey);
 }
 
 void Player::Release()

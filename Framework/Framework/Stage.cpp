@@ -1,6 +1,7 @@
 #include "Stage.h"
 #include "Player.h"
 #include "SceneManager.h"
+//#include "CursorManager.h"
 #include "ObjectManager.h"
 
 Stage::Stage() : pPlayer(nullptr) { }
@@ -11,21 +12,21 @@ void Stage::Initialize()
 {
 	list<Object*>* pPlayerList = ObjectManager::GetInstance()->GetObjectList("Player");
 
-	if(pPlayerList != nullptr)
-		pPlayer = pPlayerList->front()->Clone();
+	if (pPlayerList != nullptr)
+		pPlayer = pPlayerList->front();
 }
 
 void Stage::Update()
 {
-	if(pPlayer)
-		pPlayer->Update();
+	ObjectManager::GetInstance()->Update();
+
+	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
+
+
 }
 
 void Stage::Render()
 {
-	if(pPlayer)
-		pPlayer->Render();
-
 	ObjectManager::GetInstance()->Render();
 }
 
