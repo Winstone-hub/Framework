@@ -6,7 +6,7 @@
 #include "CursorManager.h"
 #include "ObjectManager.h"
 
-Stage::Stage() : pPlayer(nullptr) { }
+Stage::Stage()  { }
 Stage::~Stage() { Release(); }
 
 
@@ -31,9 +31,9 @@ void Stage::Update()
 {
 	ObjectManager::GetInstance()->Update();
 
-	Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("¡Û")->front();
-	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("£ª");
-	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("¡Ú");
+	Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
+	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
+	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
 
 	if (pBulletList != nullptr)
 	{
@@ -83,5 +83,5 @@ void Stage::Render()
 
 void Stage::Release()
 {
-	::Safe_Delete(pPlayer);
+
 }
