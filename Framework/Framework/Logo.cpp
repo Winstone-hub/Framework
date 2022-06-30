@@ -6,19 +6,18 @@
 #include "Player.h"
 #include "Enemy.h"
 
+#include "ObjectFactory.h"
+
 Logo::Logo() { }
 Logo::~Logo() { }
 
 
 void Logo::Initialize()
 {
-	Object* pPlayer = new Player;
-	pPlayer->Initialize();
+	ObjectManager::GetInstance()->AddObject( ObjectFactory<Player>::CreateObject() );
 
 	//Object* pEnemy = new Enemy;
 	//pEnemy->Initialize();
-
-	ObjectManager::GetInstance()->AddObject(pPlayer);
 	//ObjectManager::GetInstance()->AddObject(pEnemy);
 }
 

@@ -33,4 +33,7 @@ void InputManager::InputKey()
 
 	if (GetAsyncKeyState(VK_MENU))
 		Key |= KEY_ALT;
+
+	if (GetAsyncKeyState(VK_TAB))
+		Key |= KEY_TAB;
 }
