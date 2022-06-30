@@ -9,11 +9,6 @@ InputManager::~InputManager() { }
 void InputManager::InputKey()
 {
 	Key = 0;
-	//  00001001;
-
-	// KEY_UP = 00000001
-	// KEY_RIGHT = 00001000
-
 
 	if (GetAsyncKeyState(VK_UP) || GetAsyncKeyState('W'))
 		Key |= KEY_UP;
