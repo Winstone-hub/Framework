@@ -1,4 +1,4 @@
-// ** Framework v8.0  ( Bulelt Direction )
+// ** Framework v8.1  ( Bullet TransInfo.Direction )
 #define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "MainUpdate.h"
