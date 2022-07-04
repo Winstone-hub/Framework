@@ -1,4 +1,4 @@
-// ** Framework v9.1  ( DoubleBuffer )
+// ** Framework v9.2 ( DoubleBuffer )
 #define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "MainUpdate.h"

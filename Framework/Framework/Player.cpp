@@ -50,7 +50,7 @@ int Player::Update()
 void Player::Render()
 {
 	CursorManager::GetInstance()->WriteBuffer(
-		TransInfo.Position, (char*)"ABCDEFG", 0);
+		TransInfo.Position, (char*)"ABCDEFG");
 }
 
 void Player::Release()

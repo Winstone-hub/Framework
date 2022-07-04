@@ -61,6 +61,9 @@ void CursorManager::WriteBuffer(float _x, float _y, char* _str, int _Color)
 	// 좌표 이동
 	SetConsoleCursorPosition(hBuffer[BufferIndex], CurSorPosition);
 
+	// ** 텍스트 색 변경
+	SetColor(_Color);
+
 	// 버퍼에 쓰기
 	WriteFile(hBuffer[BufferIndex], _str, (DWORD)strlen(_str), &dw, NULL);
 }
@@ -74,6 +77,9 @@ void CursorManager::WriteBuffer(Vector3 _Position, char* _str, int _Color)
 	// 좌표 이동
 	SetConsoleCursorPosition(hBuffer[BufferIndex], CurSorPosition);
 
+	// ** 텍스트 색 변경
+	SetColor(_Color);
+
 	// 버퍼에 쓰기
 	WriteFile(hBuffer[BufferIndex], _str, (DWORD)strlen(_str), &dw, NULL);
 }
@@ -82,7 +88,7 @@ void CursorManager::FlippingBuffer()
 {
 	SetConsoleActiveScreenBuffer(hBuffer[BufferIndex]);
 	BufferIndex = !BufferIndex;
-	
+
 	ClearBuffer();
 }
 
@@ -96,6 +102,12 @@ void CursorManager::ClearBuffer()
 
 void CursorManager::DestroyBuffer()
 {
+	CloseHandle(hBuffer[0]);
+	CloseHandle(hBuffer[1]);
+}
 
+void CursorManager::SetColor(int _Color)
+{
+	SetConsoleTextAttribute(hBuffer[BufferIndex], _Color);
 }
 
