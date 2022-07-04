@@ -3,18 +3,19 @@
 
 class CursorManager
 {
+private:
+	static CursorManager* Instance;
 public:
-	static void SetCursorPosition(float _x, float _y)
+	static CursorManager* GetInstance()
 	{
-		COORD Pos = { (SHORT)_x, (SHORT)_y };
-		SetConsoleCursorPosition(
-			GetStdHandle(STD_OUTPUT_HANDLE), Pos);
-	}
+		if (Instance == nullptr)
+			Instance = new CursorManager;
 
-	static void Draw(float _x, float _y, string _str)
-	{
-		SetCursorPosition(_x, _y);
-		cout << _str;
+		return Instance;
 	}
+private:
+	CursorManager();
+public:
+	~CursorManager();
 };
 

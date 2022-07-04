@@ -26,12 +26,6 @@ struct Vector3
 	{
 		return Vector3(this->x += _V1.x, this->y += _V1.y, this->z += _V1.z);
 	}
-	/*
-	Vector3 operator/=(float _Value)
-	{
-		return Vector3(this->x /= _Value, this->y /= _Value, this->z /= _Value);
-	}
-	*/
 
 	Vector3 operator*(float _Value)
 	{

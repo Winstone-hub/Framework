@@ -58,16 +58,6 @@ void ObjectManager::Update()
 			}
 			else
 				++iter2;
-
-
-
-
-
-
-
-
-
-
 		}
 	}
 }
