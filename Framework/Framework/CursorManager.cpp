@@ -9,7 +9,7 @@ CursorManager::CursorManager() : BufferIndex(0)
 
 CursorManager::~CursorManager()
 {
-
+	DestroyBuffer();
 }
 
 void CursorManager::CreateBuffer(const int& _Width, const int& _Height)
@@ -97,13 +97,13 @@ void CursorManager::ClearBuffer()
 	DWORD dw;
 	COORD Coord = { 0 ,0 };
 
-	FillConsoleOutputCharacter(hBuffer[BufferIndex], ' ', 120 * 30, Coord, &dw);
+	FillConsoleOutputCharacter(hBuffer[BufferIndex], ' ', ConsoleWidthSize * ConsoleHeightSize, Coord, &dw);
 }
 
 void CursorManager::DestroyBuffer()
 {
-	CloseHandle(hBuffer[0]);
-	CloseHandle(hBuffer[1]);
+	for (int i = 0; i < 2; ++i)
+		CloseHandle(hBuffer[i]);
 }
 
 void CursorManager::SetColor(int _Color)

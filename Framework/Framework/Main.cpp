@@ -1,4 +1,4 @@
-// ** Framework v9.2 ( DoubleBuffer )
+// ** Framework v9.3 ( DoubleBuffer )
 #define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "MainUpdate.h"
@@ -9,7 +9,6 @@ int main(void)
 	system("title 홍길동 - 게임명");
 
 	system("mode con cols=120 lines=30");
-
 
 	MainUpdate Main;
 	Main.Initialize();
