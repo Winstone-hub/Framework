@@ -10,7 +10,7 @@ MainUpdate::~MainUpdate() { Release(); }
 void MainUpdate::Initialize()
 {
 	CursorManager::GetInstance()->CreateBuffer(ConsoleWidthSize, ConsoleHeightSize);
-	SceneManager::GetInstance()->SetScene(LOGO);
+	SceneManager::GetInstance()->SetScene(SCENEID::LOGO);
 }
 
 void MainUpdate::Update()
