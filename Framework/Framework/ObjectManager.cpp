@@ -1,4 +1,5 @@
 #include "ObjectManager.h"
+#include "ObjectPool.h"
 #include "Object.h"
 
 ObjectManager* ObjectManager::Instance = nullptr;
@@ -22,10 +23,11 @@ void ObjectManager::AddObject(Object* _Object)
 	{
 		list<Object*> TempList;
 		TempList.push_back(_Object);
-		ObjectList.insert(make_pair(_Object->GetKey(), TempList));
+		ObjectPool::GetInstance()->AddObject(_Object->GetKey(), TempList);
+		//ObjectList.insert(make_pair(_Object->GetKey(), TempList));
 	}
 	else
-		iter->second.push_back(_Object);
+		ObjectPool::GetInstance()->AddObject(_Object);
 }
 
 list<Object*>* ObjectManager::GetObjectList(string _strKey)
@@ -40,26 +42,7 @@ list<Object*>* ObjectManager::GetObjectList(string _strKey)
 
 void ObjectManager::Update()
 {
-	for (map<string, list<Object*>>::iterator iter = ObjectList.begin();
-		iter != ObjectList.end(); ++iter)
-	{
-		for (list<Object*>::iterator iter2 = iter->second.begin();
-			iter2 != iter->second.end(); )
-		{
-			int result = (*iter2)->Update();
-
-			if (result == BUFFER_OVER)
-			{
-				Object* Temp = *iter2;
-				iter2 = iter->second.erase(iter2);
-
-				delete Temp;
-				Temp = nullptr;
-			}
-			else
-				++iter2;
-		}
-	}
+	ObjectPool::GetInstance()->Update();
 }
 
 void ObjectManager::Render()
