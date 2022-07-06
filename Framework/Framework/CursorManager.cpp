@@ -37,19 +37,6 @@ void CursorManager::CreateBuffer(const int& _Width, const int& _Height)
 		// ** 커서 셋팅
 		SetConsoleCursorInfo(hBuffer[i], &Cursor);
 	}
-
-	/*
-	hBuffer[0] = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
-	SetConsoleScreenBufferSize(hBuffer[0], Size);
-	SetConsoleWindowInfo(hBuffer[0], TRUE, &rect);
-
-	hBuffer[1] = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
-	SetConsoleScreenBufferSize(hBuffer[1], Size);
-	SetConsoleWindowInfo(hBuffer[1], TRUE, &rect);
-
-	SetConsoleCursorInfo(hBuffer[0], &Cursor);
-	SetConsoleCursorInfo(hBuffer[1], &Cursor);
-	*/
 }
 
 void CursorManager::WriteBuffer(float _x, float _y, char* _str, int _Color)
