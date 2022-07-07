@@ -14,8 +14,8 @@ Logo::~Logo() { }
 
 void Logo::Initialize()
 {
-	ObjectManager::GetInstance()->AddObject( ObjectFactory<Player>::CreateObject() );
-	SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
+	//ObjectManager::GetInstance()->AddObject( ObjectFactory<Player>::CreateObject() );
+	//SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
 	//Object* pEnemy = new Enemy;
 	//pEnemy->Initialize();
 	//ObjectManager::GetInstance()->AddObject(pEnemy);

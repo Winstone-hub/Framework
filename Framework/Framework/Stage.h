@@ -6,6 +6,7 @@ class UserInterface;
 class Stage : public Scene
 {
 private:
+	Object* pPlayer;
 	UserInterface* pUI;
 	int Check;
 public:

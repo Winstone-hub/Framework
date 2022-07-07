@@ -8,6 +8,7 @@
 #include "CursorManager.h"
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
+#include "ObjectPool.h"
 
 Stage::Stage() : Check(0) { }
 Stage::~Stage() { Release(); }
@@ -16,6 +17,10 @@ Stage::~Stage() { Release(); }
 void Stage::Initialize()
 {
 	Check = 0;
+
+	pPlayer = new Player;
+	pPlayer->Initialize();
+
 
 	Object* pEnemyProto = ObjectFactory<Enemy>::CreateObject();
 
@@ -30,12 +35,17 @@ void Stage::Initialize()
 		//pEnemy->SetPosition(118.0f, float(rand() % 30));
 		pEnemy->SetPosition(float(rand() % 118), float(rand() % 30));
 
-		ObjectManager::GetInstance()->AddObject(pEnemy);
+		//ObjectManager::GetInstance()->AddObject(pEnemy);
 	}
 }
 
 void Stage::Update()
 {
+	//Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
+	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
+	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
+
+
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_TAB)
@@ -43,11 +53,18 @@ void Stage::Update()
 		Enable_UI();
 	}
 
+	if (dwKey & KEY_ESCAPE)
+	{
+		if (pBulletList->size())
+		{
+			ObjectPool::GetInstance()->CatchObject(pBulletList->back());
+			pBulletList->pop_back();
+		}
+	}
+
+	pPlayer->Update();
 	ObjectManager::GetInstance()->Update();
 
-	Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
-	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
-	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
 
 	if (pBulletList != nullptr)
 	{
@@ -60,6 +77,8 @@ void Stage::Update()
 				++iter;
 		}
 	}
+
+	
 
 	if (pPlayer != nullptr)
 	{
@@ -94,6 +113,7 @@ void Stage::Update()
 
 void Stage::Render()
 {
+	pPlayer->Render();
 	ObjectManager::GetInstance()->Render();
 
 	if(Check)
@@ -102,7 +122,8 @@ void Stage::Render()
 
 void Stage::Release()
 {
-
+	delete pPlayer;
+	pPlayer = nullptr;
 }
 
 void Stage::Enable_UI()

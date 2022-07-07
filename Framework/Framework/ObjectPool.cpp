@@ -1,6 +1,7 @@
 #include "ObjectPool.h"
 #include "Object.h"
 #include "CursorManager.h"
+#include "ObjectManager.h"
 
 ObjectPool* ObjectPool::Instance = nullptr;
 map<string, list<Object*>> ObjectPool::EnableList;
@@ -27,6 +28,20 @@ void ObjectPool::CatchObject(Object* _Object)
 	}
 	else
 		Disableiter->second.push_back(_Object);
+}
+
+Object* ObjectPool::ThrowObject(string _Key)
+{
+	map<string, list<Object*>>::iterator Disableiter = DisableList.find(_Key);
+
+	if (Disableiter != DisableList.end() && Disableiter->second.size())
+	{
+		Object* pObject = Disableiter->second.front();
+		Disableiter->second.pop_front();
+		return pObject;
+	}
+
+	return nullptr;
 }
 
 void ObjectPool::Update()

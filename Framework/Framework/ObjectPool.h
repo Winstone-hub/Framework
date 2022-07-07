@@ -19,6 +19,7 @@ private:
 public:
 	static map<string, list<Object*>>* GetEnableList() { return &EnableList; }
 	void CatchObject(Object* _Object);
+	Object* ThrowObject(string _Key);
 	void Update();
 private:
 	ObjectPool();
