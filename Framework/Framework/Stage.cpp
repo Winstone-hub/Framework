@@ -68,12 +68,9 @@ void Stage::Update()
 			for (list<Object*>::iterator Enemyiter = pEnemyList->begin();
 				Enemyiter != pEnemyList->end(); ++Enemyiter)
 			{
-				if (CollisionManager::Collision(pPlayer, *Enemyiter))
+				if (CollisionManager::CircleCollision(pPlayer, *Enemyiter))
 				{
-
-
-
-
+					 
 				}
 
 				if (pBulletList != nullptr)
@@ -81,10 +78,8 @@ void Stage::Update()
 					for (list<Object*>::iterator Bulletiter = pBulletList->begin();
 						Bulletiter != pBulletList->end(); ++Bulletiter)
 					{
-						if (CollisionManager::Collision(*Bulletiter, *Enemyiter))
+						if (CollisionManager::CircleCollision(*Bulletiter, *Enemyiter))
 						{
-
-
 
 
 						}

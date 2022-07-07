@@ -28,11 +28,7 @@ int Bullet::Update()
 
 	TransInfo.Position += TransInfo.Direction;
 
-	float Distance = MathManager::GetDistance(
-		TransInfo.Position, Vector3(60.0f, 15.0f));
-
-	if (Distance < 4)
-		return 2;
+	
 
 	return 0;
 }
