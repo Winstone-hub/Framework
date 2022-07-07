@@ -19,7 +19,7 @@ private:
 public:
 	void AddObject(Object* _Object);
 	list<Object*>* GetObjectList(string _strKey);
-	void ThrowObject(Object* _Object);
+	list<Object*>::iterator ThrowObject(list<Object*>::iterator _Where, Object* _Object);
 	void Update();
 	void Render();
 private:

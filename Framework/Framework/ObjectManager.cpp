@@ -39,16 +39,15 @@ list<Object*>* ObjectManager::GetObjectList(string _strKey)
 	return &iter->second;
 }
 
-void ObjectManager::ThrowObject(Object* _Object)
+list<Object*>::iterator ObjectManager::ThrowObject(list<Object*>::iterator _Where, Object* _Object)
 {
 	map<string, list<Object*>>::iterator iter = EnableList->find(_Object->GetKey());
 
 	if (iter == EnableList->end())
-		return;
+		return _Where;
 
-
-
-	EnableList->erase(iter);
+	ObjectPool::GetInstance()->CatchObject(_Object);
+	return iter->second.erase(_Where);
 }
 
 void ObjectManager::Update()

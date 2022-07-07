@@ -69,20 +69,19 @@ void Stage::Update()
 				Enemyiter != pEnemyList->end(); ++Enemyiter)
 			{
 				if (CollisionManager::CircleCollision(pPlayer, *Enemyiter))
-				{
-					 
-				}
+					Enemyiter = ObjectManager::GetInstance()->ThrowObject(Enemyiter, (*Enemyiter));
+					
+
 
 				if (pBulletList != nullptr)
 				{
 					for (list<Object*>::iterator Bulletiter = pBulletList->begin();
-						Bulletiter != pBulletList->end(); ++Bulletiter)
+						Bulletiter != pBulletList->end(); )
 					{
-						if (CollisionManager::CircleCollision(*Bulletiter, *Enemyiter))
-						{
-
-
-						}
+						if (CollisionManager::RectCollision(*Bulletiter, *Enemyiter))
+							Bulletiter = ObjectManager::GetInstance()->ThrowObject(Bulletiter, (*Bulletiter));
+						else
+							++Bulletiter;
 					}
 				}
 			}

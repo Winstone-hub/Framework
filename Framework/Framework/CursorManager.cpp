@@ -67,11 +67,14 @@ void CursorManager::WriteBuffer(float _x, float _y, int _Value, int _Color)
 	// ** 텍스트 색 변경
 	SetColor(_Color);
 
-	char* Buffer = new char[4];
+	char Buffer[4];
 	_itoa(_Value, Buffer, 10);
 
+	char* pBuffer = new char[strlen(Buffer)];
+	strcpy(pBuffer, Buffer);
+
 	// 버퍼에 쓰기
-	WriteFile(hBuffer[BufferIndex], Buffer, (DWORD)strlen(Buffer), &dw, NULL);
+	WriteFile(hBuffer[BufferIndex], pBuffer, (DWORD)strlen(pBuffer), &dw, NULL);
 }
 
 void CursorManager::WriteBuffer(Vector3 _Position, char* _str, int _Color)
@@ -103,11 +106,14 @@ void CursorManager::WriteBuffer(Vector3 _Position, int _Value, int _Color)
 	SetColor(_Color);
 
 
-	char* Buffer = new char[4];
+	char Buffer[4];
 	_itoa(_Value, Buffer, 10);
 
+	char* pBuffer = new char[strlen(Buffer)];
+	strcpy(pBuffer, Buffer);
+
 	// 버퍼에 쓰기
-	WriteFile(hBuffer[BufferIndex], Buffer, (DWORD)strlen(Buffer), &dw, NULL);
+	WriteFile(hBuffer[BufferIndex], pBuffer, (DWORD)strlen(pBuffer), &dw, NULL);
 }
 
 void CursorManager::FlippingBuffer()
