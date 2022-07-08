@@ -6,9 +6,9 @@ BackGround::BackGround(Transform _TransInfo) { }
 BackGround::~BackGround() { }
 
 
-void BackGround::Initialize()
+Object* BackGround::Initialize(string _Key)
 {
-
+	return nullptr;
 }
 
 int BackGround::Update()

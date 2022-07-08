@@ -82,6 +82,12 @@
     <Filter Include="소스 파일\98. Pattern">
       <UniqueIdentifier>{b3844b10-3f8c-4ea8-9733-805eb8716647}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\98. Pattern\ObjectPool">
+      <UniqueIdentifier>{55a0395a-1e33-4c44-a104-a522ed1c085a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\98. Pattern\Prototype">
+      <UniqueIdentifier>{30be9ad1-7455-491e-ab98-9cbd8963fc8e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -139,7 +145,10 @@
       <Filter>소스 파일\99. Manager\CursorManager</Filter>
     </ClCompile>
     <ClCompile Include="ObjectPool.cpp">
-      <Filter>소스 파일\98. Pattern</Filter>
+      <Filter>소스 파일\98. Pattern\ObjectPool</Filter>
+    </ClCompile>
+    <ClCompile Include="Prototype.cpp">
+      <Filter>소스 파일\98. Pattern\Prototype</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -219,7 +228,10 @@
       <Filter>소스 파일\99. Manager\MathManager</Filter>
     </ClInclude>
     <ClInclude Include="ObjectPool.h">
-      <Filter>소스 파일\98. Pattern</Filter>
+      <Filter>소스 파일\98. Pattern\ObjectPool</Filter>
+    </ClInclude>
+    <ClInclude Include="Prototype.h">
+      <Filter>소스 파일\98. Pattern\Prototype</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

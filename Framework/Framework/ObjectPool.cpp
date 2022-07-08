@@ -38,6 +38,8 @@ Object* ObjectPool::ThrowObject(string _Key)
 	{
 		Object* pObject = Disableiter->second.front();
 		Disableiter->second.pop_front();
+
+		pObject->Initialize(_Key);
 		return pObject;
 	}
 

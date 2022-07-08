@@ -5,7 +5,6 @@
 #include "ObjectManager.h"
 #include "Player.h"
 #include "Enemy.h"
-
 #include "ObjectFactory.h"
 
 Logo::Logo() { }

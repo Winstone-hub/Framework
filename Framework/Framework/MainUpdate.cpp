@@ -2,6 +2,8 @@
 #include "SceneManager.h"
 #include "CursorManager.h"
 #include "InputManager.h"
+#include "Prototype.h"
+
 
 MainUpdate::MainUpdate() { }
 MainUpdate::~MainUpdate() { Release(); }
@@ -9,6 +11,7 @@ MainUpdate::~MainUpdate() { Release(); }
 
 void MainUpdate::Initialize()
 {
+	Prototype::GetInstance()->Initialize();
 	CursorManager::GetInstance()->CreateBuffer(ConsoleWidthSize, ConsoleHeightSize);
 	SceneManager::GetInstance()->SetScene(SCENEID::LOGO);
 }

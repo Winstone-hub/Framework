@@ -18,25 +18,8 @@ void Stage::Initialize()
 {
 	Check = 0;
 
-	pPlayer = new Player;
-	pPlayer->Initialize();
-
-
-	Object* pEnemyProto = ObjectFactory<Enemy>::CreateObject();
-
 	pUI = new ScrollBox;
 	pUI->Initialize();
-
-	for (int i = 0; i < 5; ++i)
-	{
-		srand(DWORD(GetTickCount64() * (i + 1)));
-
-		Object* pEnemy = pEnemyProto->Clone();
-		//pEnemy->SetPosition(118.0f, float(rand() % 30));
-		pEnemy->SetPosition(float(rand() % 118), float(rand() % 30));
-
-		//ObjectManager::GetInstance()->AddObject(pEnemy);
-	}
 }
 
 void Stage::Update()
@@ -44,7 +27,6 @@ void Stage::Update()
 	//Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
 	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
 	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
-
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
@@ -64,7 +46,6 @@ void Stage::Update()
 
 	pPlayer->Update();
 	ObjectManager::GetInstance()->Update();
-
 
 	if (pBulletList != nullptr)
 	{
@@ -88,7 +69,9 @@ void Stage::Update()
 				Enemyiter != pEnemyList->end(); ++Enemyiter)
 			{
 				if (CollisionManager::CircleCollision(pPlayer, *Enemyiter))
-					Enemyiter = ObjectManager::GetInstance()->ThrowObject(Enemyiter, (*Enemyiter));
+				{
+					//Enemyiter = ObjectManager::GetInstance()->ThrowObject(Enemyiter, (*Enemyiter));
+				}
 					
 
 
@@ -97,10 +80,12 @@ void Stage::Update()
 					for (list<Object*>::iterator Bulletiter = pBulletList->begin();
 						Bulletiter != pBulletList->end(); )
 					{
+						/*
 						if (CollisionManager::RectCollision(*Bulletiter, *Enemyiter))
 							Bulletiter = ObjectManager::GetInstance()->ThrowObject(Bulletiter, (*Bulletiter));
 						else
 							++Bulletiter;
+						*/
 					}
 				}
 			}
