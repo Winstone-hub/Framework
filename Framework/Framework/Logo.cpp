@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "ObjectFactory.h"
+#include "CursorManager.h"
 
 Logo::Logo() { }
 Logo::~Logo() { }
@@ -13,11 +14,7 @@ Logo::~Logo() { }
 
 void Logo::Initialize()
 {
-	//ObjectManager::GetInstance()->AddObject( ObjectFactory<Player>::CreateObject() );
-	//SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
-	//Object* pEnemy = new Enemy;
-	//pEnemy->Initialize();
-	//ObjectManager::GetInstance()->AddObject(pEnemy);
+
 }
 
 void Logo::Update()
@@ -30,7 +27,7 @@ void Logo::Update()
 
 void Logo::Render()
 {
-	cout << "Logo" << endl;
+	CursorManager::GetInstance()->WriteBuffer(0.0f, 0.0f, (char*)"Logo");
 }
 
 void Logo::Release()

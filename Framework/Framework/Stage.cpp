@@ -18,13 +18,15 @@ void Stage::Initialize()
 {
 	Check = 0;
 
+	ObjectManager::GetInstance()->AddObject("Player");
+	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
+
 	pUI = new ScrollBox;
 	pUI->Initialize();
 }
 
 void Stage::Update()
 {
-	//Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
 	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
 	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
 
@@ -72,8 +74,6 @@ void Stage::Update()
 				{
 					//Enemyiter = ObjectManager::GetInstance()->ThrowObject(Enemyiter, (*Enemyiter));
 				}
-					
-
 
 				if (pBulletList != nullptr)
 				{

@@ -21,6 +21,7 @@ Object* Player::Initialize(string _Key)
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 2.0f);
 
+	Speed = 1.0f;
 	Color = 15;
 
 	return this;
@@ -31,16 +32,16 @@ int Player::Update()
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_UP)
-		TransInfo.Position.y -= 1;
+		TransInfo.Position.y -= Speed;
 
 	if (dwKey & KEY_DOWN)
-		TransInfo.Position.y += 1;
+		TransInfo.Position.y += Speed;
 
 	if (dwKey & KEY_LEFT)
-		TransInfo.Position.x -= 1;
+		TransInfo.Position.x -= Speed;
 	
 	if (dwKey & KEY_RIGHT)
-		TransInfo.Position.x += 1;
+		TransInfo.Position.x += Speed;
 
 	if (dwKey & KEY_SPACE)
 	{

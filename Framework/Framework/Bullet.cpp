@@ -20,6 +20,7 @@ Object* Bullet::Initialize(string _Key)
 
 	TransInfo.Direction = Vector3(0.0f, 0.0f);
 
+	Speed = 0.5f;
 	Color = 13;
 
 	return this;
@@ -30,7 +31,7 @@ int Bullet::Update()
 	TransInfo.Direction = MathManager::GetDirection(
 		TransInfo.Position, Vector3(60.0f, 15.0f));
 
-	TransInfo.Position += TransInfo.Direction;
+	TransInfo.Position += TransInfo.Direction * Speed;
 
 	return 0;
 }

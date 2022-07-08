@@ -7,6 +7,7 @@ protected:
 	Transform TransInfo;
 	string strKey;
 	int Color;
+	float Speed;
 	char* Buffer[MAX_SIZE];
 public:
 	virtual Object* Initialize(string _Key)PURE;
