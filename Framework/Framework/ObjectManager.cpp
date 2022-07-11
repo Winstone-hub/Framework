@@ -3,6 +3,8 @@
 #include "ObjectPool.h"
 #include "Prototype.h"
 #include "Bullet.h"
+#include "Bridge.h"
+
 
 ObjectManager* ObjectManager::Instance = nullptr;
 
@@ -17,26 +19,36 @@ ObjectManager::~ObjectManager()
 }
 
 
-void ObjectManager::AddObject(Object* _Object)
-{
-	map<string, list<Object*>>::iterator iter = EnableList->find(_Object->GetKey());
-
-	if (iter == EnableList->end())
-	{
-		list<Object*> TempList;
-		TempList.push_back(_Object);
-		EnableList->insert(make_pair(_Object->GetKey(), TempList));
-	}
-	else
-		iter->second.push_back(_Object);
-}
-
 void ObjectManager::AddObject(string _Key)
 {
 	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
 
 	if (pObject == nullptr)
 		pObject = Prototype::GetInstance()->ProtoTypeObject(_Key)->Clone();
+
+	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
+
+	if (iter == EnableList->end())
+	{
+		list<Object*> TempList;
+		TempList.push_back(pObject);
+		EnableList->insert(make_pair(pObject->GetKey(), TempList));
+	}
+	else
+		iter->second.push_back(pObject);
+}
+
+void ObjectManager::AddObject(string _Key, Bridge* _Bridge)
+{
+	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
+
+	if (pObject == nullptr)
+		pObject = Prototype::GetInstance()->ProtoTypeObject(_Key)->Clone();
+
+	_Bridge->Initialize();
+	_Bridge->SetObject(pObject);
+
+	pObject->SetBridge(_Bridge);
 
 	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
 

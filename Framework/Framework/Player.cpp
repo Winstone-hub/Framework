@@ -3,9 +3,8 @@
 #include "CursorManager.h"
 #include "Bullet.h"
 #include "ObjectManager.h"
-#include "ObjectFactory.h"
-
 #include "NormalBullet.h"
+
 
 Player::Player() { }
 Player::Player(Transform _TransInfo) : Object(_TransInfo) { }
@@ -44,16 +43,9 @@ int Player::Update()
 
 	if (dwKey & KEY_SPACE)
 	{
-		ObjectManager::GetInstance()->AddObject(
-			CreateBullet<NormalBullet>() );
+		Bridge* pBridge = new NormalBullet;
+		ObjectManager::GetInstance()->AddObject("Bullet", pBridge);
 	}
-
-	/*
-	if (dwKey & KEY_ENTER)
-	{
-		CreateBullet<´Ù¸¥°Å>();
-	}
-	*/
 
 	return 0;
 }
@@ -70,14 +62,4 @@ void Player::Render()
 void Player::Release()
 {
 
-}
-
-template<typename T>
-Object* Player::CreateBullet()
-{
-	Bridge* pBridge = new T;
-
-	Object* pBullet = ObjectFactory<Bullet>::CreateObject(TransInfo.Position, pBridge);
-
-	return pBullet;
 }

@@ -2,6 +2,7 @@
 #include "Headers.h"
 
 class Object;
+class Bridge;
 class ObjectManager
 {
 private:
@@ -17,8 +18,8 @@ public:
 private:
 	map<string, list<Object*>>* EnableList;
 public:
-	void AddObject(Object* _Object);
 	void AddObject(string _Key);
+	void AddObject(string _Key, Bridge* _Bridge);
 	list<Object*>* GetObjectList(string _strKey);
 	list<Object*>::iterator ThrowObject(list<Object*>::iterator _Where, Object* _Object);
 	void Update();
@@ -28,4 +29,3 @@ private:
 public:
 	~ObjectManager();
 };
-
