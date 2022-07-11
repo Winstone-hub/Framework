@@ -20,9 +20,6 @@ Object* Bullet::Initialize(string _Key)
 
 	TransInfo.Direction = Vector3(0.0f, 0.0f);
 
-	if (pBridge)
-		pBridge->Initialize();
-
 	return this;
 }
 

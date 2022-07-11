@@ -12,6 +12,8 @@ public:
 	virtual void Render()PURE;
 	virtual void Release()PURE;
 public:
+	void SetObject(Object* _Object) { pObject = _Object; }
+public:
 	Bridge() : pObject(nullptr) {}
 	virtual ~Bridge() {}
 };

@@ -17,6 +17,20 @@ ObjectManager::~ObjectManager()
 }
 
 
+void ObjectManager::AddObject(Object* _Object)
+{
+	map<string, list<Object*>>::iterator iter = EnableList->find(_Object->GetKey());
+
+	if (iter == EnableList->end())
+	{
+		list<Object*> TempList;
+		TempList.push_back(_Object);
+		EnableList->insert(make_pair(_Object->GetKey(), TempList));
+	}
+	else
+		iter->second.push_back(_Object);
+}
+
 void ObjectManager::AddObject(string _Key)
 {
 	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);

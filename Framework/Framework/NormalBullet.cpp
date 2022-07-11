@@ -33,12 +33,10 @@ int NormalBullet::Update(Transform& Info)
 
 void NormalBullet::Render()
 {
-	for (int i = 0; i < 2; ++i)
-		CursorManager::GetInstance()->WriteBuffer(
-			pObject->GetPosition().x,
-			pObject->GetPosition().y + i,
-			(char*)"Bullet", Color);
-	
+	CursorManager::GetInstance()->WriteBuffer(
+		pObject->GetPosition().x,
+		pObject->GetPosition().y,
+		(char*)"Bullet", Color);
 }
 
 void NormalBullet::Release()
