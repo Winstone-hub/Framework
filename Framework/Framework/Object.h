@@ -1,14 +1,15 @@
 #pragma once
 #include "Headers.h"
 
+class Bridge;
 class Object
 {
 protected:
 	Transform TransInfo;
 	string strKey;
-	int Color;
-	float Speed;
 	char* Buffer[MAX_SIZE];
+
+	Bridge* pBridge;
 public:
 	virtual Object* Initialize(string _Key)PURE;
 	virtual int Update()PURE;

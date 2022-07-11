@@ -77,8 +77,9 @@ void ObjectPool::Update()
 				else
 					Disableiter->second.push_back((*iter2));
 
-				(*iter).second.erase(iter2);
+				iter2 = (*iter).second.erase(iter2);
 			}
+				break;
 
 			case 2:
 				CursorManager::GetInstance()->WriteBuffer(50.0f, 1.0f, (char*)"충돌입니다");

@@ -20,7 +20,6 @@ Object* Enemy::Initialize(string _Key)
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3((float)strlen(Buffer[0]), (float)MAX_SIZE);
 
-	Color = 12;
 
 	return this;
 }
@@ -42,7 +41,7 @@ void Enemy::Render()
 		CursorManager::GetInstance()->WriteBuffer(
 			TransInfo.Position.x,
 			TransInfo.Position.y + i, 
-			Buffer[i], Color);
+			Buffer[i], 12);
 }
 
 void Enemy::Release()
